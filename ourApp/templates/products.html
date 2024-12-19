@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+{% include 'header.html' %}
+<html>
+    <head>
+        <title>sample</title>
+        <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}">
+    </head>
+    <body>
+        {% if messages %}
+        <div class="messages">
+            <div class="message">{{ message }}</div>
+        </div>
+        {% endif %}
+
+        <!-- <p>{{products}}</p> -->
+        {% for prod in products %}
+        <div class="a-product">
+            <div class="image-container">
+                <img src="{{prod.image}}" alt="product image" class="product-image"/>
+            </div>
+            <div class="product-details">
+                <h2 class="product-name">{{ prod.name }}</h2><br><br>
+                <div class="button-container">
+                    <div class="amazon-link">
+                        <a href="{{prod.alink}}" target="_blank" class="a-price-link" >
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="amazon logo" class="amazon-logo" />
+                            <span class="price">{{prod.aprice}}</span>
+                        </a>
+                        
+                    </div>
+                    <div class="flipkart-link" >
+                        <a href="{{prod.flink}}" target="_blank" class="f-price-link">
+                            <img src="https://1000logos.net/wp-content/uploads/2021/02/Flipkart-logo.png" alt="flipkart logo" class="flipkart-logo" />
+                            <span class="price">{{prod.fprice}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+    </body>
+</html>

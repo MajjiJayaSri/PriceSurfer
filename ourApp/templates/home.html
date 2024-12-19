@@ -1,0 +1,37 @@
+{% load static %}
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PriceSurfer-Home</title>
+        <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}">
+    </head>
+    <body>
+        {% include 'courosel.html' %}
+        <!-- Bootstrap 4.5.2 JS -->
+            <h1 class="laptops-heading">Top company laptops</h1>
+          <div class="logo-slider">
+            <div class="laptop-logo">
+                <a class="laptop-logo" href="{% url 'search_products' %}?q=dell+laptop"><img class="logo" src="{% static 'images/dell1.png' %}"> </a>
+            </div>
+            <div class="laptop-logo">
+                <a href="{% url 'search_products' %}?q=lenovo+laptop"><img class="logo" src="{% static 'images/lenovo2.png' %}"> </a>
+            </div>
+            <div class="laptop-logo">
+                <a href="{% url 'search_products' %}?q=hp+laptop"><img class="logo" src="{% static 'images/hp.png' %}"> </a>
+            </div>
+            <div class="laptop-logo">
+                <a href="{% url 'search_products' %}?q=apple+macbook"><img class="logo" src="{% static 'images/apple.png' %}"> </a>
+            </div>
+            <div class="laptop-logo">
+                <a href="{% url 'search_products' %}?q=asus+laptop"><img class="logo" src="{% static 'images/asus.png' %}"> </a>
+            </div>
+            <div class="laptop-logo">
+                <a href="{% url 'search_products' %}?q=acer+laptop"><img class="logo" src="{% static 'images/acer.png' %}"> </a>
+            </div>
+        
+
+            
+          </div>
+    </body>
+</html>

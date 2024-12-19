@@ -1,0 +1,206 @@
+/* home page css */
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #f4f4f4;
+}
+.a-product{
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    align-items: center;
+    gap:30px;
+    background-color: white; /* Optional: Make the background white */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for separation */
+    border-radius: 10px; /* Optional: Add rounded corners */
+}
+.product-image{
+    max-width:fit-content;
+    max-height:fit-content;
+    border:none;
+}
+.product-name{
+    white-space:normal;
+    overflow: visible;
+}
+.product-details {
+    justify-content: center;
+}
+.button-container{
+    display:flex;
+    flex-direction: column;
+    /* gap:20px; */
+}
+/* .amazon-link, .flipkart-link{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap:20px;
+} */
+.a-price-link, .f-price-link{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap:20px;
+}
+.amazon-logo,.flipkart-logo{
+    width: 100px;
+    height:auto;
+    object-fit:contain;
+    margin-right: 20px;
+    border:none;
+}
+.price{
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+/* header css */
+
+.navbar-custom {
+    background-color: #343a40; /* Dark background color */
+    padding-left: 10px; /* Adjust the left padding */
+    padding-right: 10px; /* Adjust the right padding */
+  }
+  .navbar-custom .navbar-nav .nav-link {
+    color: #f8f9fa; /* Light color for nav links */
+    padding-left: 10px; /* Left padding for nav items */
+    padding-right: 10px; /* Right padding for nav items */
+  }
+  .navbar-custom .navbar-nav .nav-link:hover {
+    color: #17a2b8; /* Hover color */
+  }
+  /* Align search input and button side by side */
+  .form-inline {
+    display: flex;
+    flex-direction: row;
+  }
+  .form-inline input {
+    margin-right: 5px; /* Space between input and button */
+  }
+
+  /* carousel sytles */
+/* .carousel-inner{
+    justify-content: center;
+    align-items: center;
+} */
+.carousel-inner .carousel-item img{
+    width:100%;
+    height: 500px; 
+    /* filter: blur(2px); */
+    align-items: center;
+    padding:30px; 
+}
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(250, 243, 243);
+    font-size: 28px;
+    text-align: center;
+    z-index: 2;
+    background-color: #07060645;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  .highlight{
+    font-size: 1em;
+    font-weight: bold;
+  }
+  .about .flex {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-direction: row; /* Default layout for larger screens */
+    justify-content: flex-start;
+ }
+ 
+ .about .flex .image {
+    flex: 1 1 40rem;
+    max-width: fit-content;
+    max-height: fit-content;
+ }
+ 
+ .about .flex .image img {
+    width: 100%;
+ }
+ 
+ .about .flex .content1 {
+    flex: 1 1 40rem;
+    text-align: center;
+ }
+ 
+ .about .flex .content1 h3 {
+    font-size: 3rem;
+    text-transform: capitalize;
+    color: var(--black);
+ }
+ 
+ .about .flex .content p {
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    color: var(--light-color);
+    line-height: 2;
+ }
+ 
+ @media (max-width: 768px) {
+    .about .flex {
+       flex-direction: column; 
+    }
+ 
+    .about .flex:nth-child(2) {
+       flex-direction: column-reverse; 
+    }
+ 
+    .about .flex .image,
+    .about .flex .content1 {
+       flex: 1 1 100%; 
+       text-align: center; 
+    }
+ 
+    .about .flex .content1 h3 {
+       font-size: 2.5rem; 
+    }
+ 
+    .about .flex .content1 p {
+       font-size: 1.3rem; 
+    }
+ }
+/* .logo-slider{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: #f8fafa solid blue;
+    border-radius:5px ;
+    padding:15px; 
+} */
+.laptops-heading{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-slider {
+    display: flex;
+    justify-content: space-evenly; /* Even spacing between logos */
+    align-items: center; /* Align logos vertically */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 40px auto;
+    max-width: 1200px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .laptop-logo {
+    margin: 10px;
+  }
+
+  .logo {
+    max-width: 100px;
+    height: auto;
+  }
