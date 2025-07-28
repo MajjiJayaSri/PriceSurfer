@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .parent{
+                display: inline-block; /* Makes the whole container behave like an inline element */
+                background-color: white;
+                vertical-align: top; /* Aligns with other inline elements if present */
+                padding: 10px; /* Optional: Adds some spacing inside the container */
+                border: 1px solid #ccc;
+                width:15%;
+            }
+            .slider{
+                display: flex;
+                flex-direction: column;
+                border-color: white;
+                justify-content: space-evenly;
+                align-items: center;
+
+            }
+            .laptop-logo{
+                margin: 10px;
+            }
+            .logo{
+                width: 50px;
+                height:50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="parent">
+            <h3> Laptops</h3>
+        <div class="laptop-slider">
+            <div class="laptop-logo">
+                <a class="laptop-logo" href="{% url 'search_products' %}?q=dell+laptop"><img class="logo" src="{% static 'images/dell1.png' %}"> </a>
+            </div>
+            <div class="laptop-logo">
+                <a href="{% url 'search_products' %}?q=lenovo+laptop"><img class="logo" src="{% static 'images/lenovo2.png' %}"> </a>
+            </div>
+            <div class="laptop-logo">
+                <a href="{% url 'search_products' %}?q=hp+laptop"><img class="logo" src="{% static 'images/hp.png' %}"> </a>
+            </div>
+            <div class="laptop-logo">
+                <a href="{% url 'search_products' %}?q=apple+macbook"><img class="logo" src="{% static 'images/apple.png' %}"> </a>
+            </div>
+            <div class="laptop-logo">
+                <a href="{% url 'search_products' %}?q=asus+laptop"><img class="logo" src="{% static 'images/asus.png' %}"> </a>
+            </div>
+            <div class="laptop-logo">
+                <a href="{% url 'search_products' %}?q=acer+laptop"><img class="logo" src="{% static 'images/acer.png' %}"> </a>
+            </div>
+        </div>
+        <h3>Mobiles</h3>
+        <div class="mobile-slider">
+            <div class="mobile-logo">
+                <a href="{% url 'search_products' %}?q=iphone"><img class="logo" src="{% static 'images/apple.png' %}"> </a>
+            </div>
+            <div class="mobile-logo">
+                <a href="{% url 'search_products' %}?q=samsung+mobile"><img class="logo" src="{% static 'images/apple.png' %}"> </a>
+            </div>
+            <div class="mobile-logo">
+                <a href="{% url 'search_products' %}?q=realme+mobile"><img class="logo" src="{% static 'images/apple.png' %}"> </a>
+            </div>
+            <div class="mobile-logo">
+                <a href="{% url 'search_products' %}?q=redmi+mobile"><img class="logo" src="{% static 'images/apple.png' %}"> </a>
+            </div>
+            <div class="mobile-logo">
+                <a href="{% url 'search_products' %}?q=OnePlus+mobile"><img class="logo" src="{% static 'images/apple.png' %}"> </a>
+            </div>
+            <div class="mobile-logo">
+                <a href="{% url 'search_products' %}?q=oppo+mobile"><img class="logo" src="{% static 'images/apple.png' %}"> </a>
+            </div>
+            <div class="mobile-logo">
+                <a href="{% url 'search_products' %}?q=vivo+mobile"><img class="logo" src="{% static 'images/apple.png' %}"> </a>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

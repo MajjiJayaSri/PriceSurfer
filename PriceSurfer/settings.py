@@ -123,3 +123,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  # Directory to collect static files
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Define the path for the exports folder
+EXPORTS_ROOT = os.path.join(BASE_DIR, 'exports')
+# Ensure the folder exists when the project runs
+os.makedirs(EXPORTS_ROOT, exist_ok=True)

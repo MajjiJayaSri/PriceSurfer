@@ -48,7 +48,7 @@ def scrap(search_key):
                     d['alink'] = adict['link']
                     break
             matched_products.append(d)
-            
+        print("length",len(matched_products))
     else:
         print("No matching products found.")
     return matched_products

@@ -9,7 +9,7 @@
     <body>
         {% include 'courosel.html' %}
         <!-- Bootstrap 4.5.2 JS -->
-            <h1 class="laptops-heading">Top company laptops</h1>
+        <h1 class="laptops-heading">Top company laptops</h1>
           <div class="logo-slider">
             <div class="laptop-logo">
                 <a class="laptop-logo" href="{% url 'search_products' %}?q=dell+laptop"><img class="logo" src="{% static 'images/dell1.png' %}"> </a>
@@ -29,9 +29,27 @@
             <div class="laptop-logo">
                 <a href="{% url 'search_products' %}?q=acer+laptop"><img class="logo" src="{% static 'images/acer.png' %}"> </a>
             </div>
-        
-
-            
-          </div>
+        </div><br>
+        <h1 class="laptops-heading">Top company mobiles</h1>
+        <div class="logo-slider">
+            <div class="mobile-logo">
+                <a class="laptop-logo" href="{% url 'search_products' %}?q=iphone"><img class="logo" src="{% static 'images/iphone.png' %}"> </a>
+            </div>
+            <div class="laptop-logo">
+                <a href="{% url 'search_products' %}?q=samsung+mobile"><img class="logo" src="{% static 'images/samsung.png' %}"> </a>
+            </div>
+            <div class="laptop-logo">
+                <a href="{% url 'search_products' %}?q=realme+mobile"><img class="logo" src="{% static 'images/realme.png' %}"> </a>
+            </div>
+            <div class="laptop-logo">
+                <a href="{% url 'search_products' %}?q=redmi+mobile"><img class="logo" src="{% static 'images/redmi.png' %}"> </a>
+            </div>
+            <div class="laptop-logo">
+                <a href="{% url 'search_products' %}?q=oppo+mobile"><img class="logo" src="{% static 'images/oppo.png' %}"> </a>
+            </div>
+            <div class="laptop-logo">
+                <a href="{% url 'search_products' %}?q=oneplus+mobile"><img class="logo" src="{% static 'images/oneplus.png' %}"> </a>
+            </div>
+        </div>
     </body>
 </html>

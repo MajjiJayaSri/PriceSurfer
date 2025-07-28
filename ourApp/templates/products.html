@@ -2,43 +2,159 @@
 {% load static %}
 {% include 'header.html' %}
 <html>
-    <head>
-        <title>sample</title>
-        <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}">
-    </head>
-    <body>
-        {% if messages %}
-        <div class="messages">
-            <div class="message">{{ message }}</div>
-        </div>
-        {% endif %}
-
-        <!-- <p>{{products}}</p> -->
-        {% for prod in products %}
-        <div class="a-product">
-            <div class="image-container">
-                <img src="{{prod.image}}" alt="product image" class="product-image"/>
-            </div>
-            <div class="product-details">
-                <h2 class="product-name">{{ prod.name }}</h2><br><br>
-                <div class="button-container">
-                    <div class="amazon-link">
-                        <a href="{{prod.alink}}" target="_blank" class="a-price-link" >
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="amazon logo" class="amazon-logo" />
-                            <span class="price">{{prod.aprice}}</span>
-                        </a>
-                        
-                    </div>
-                    <div class="flipkart-link" >
-                        <a href="{{prod.flink}}" target="_blank" class="f-price-link">
-                            <img src="https://1000logos.net/wp-content/uploads/2021/02/Flipkart-logo.png" alt="flipkart logo" class="flipkart-logo" />
-                            <span class="price">{{prod.fprice}}</span>
-                        </a>
-                    </div>
+<head>
+    <title>Products</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <style>
+        .parent {
+            display: flex;
+        }
+        .filter-section {
+            width: 15%;
+            margin-right: 10px;
+        }
+        .products-section {
+            width: 85%;
+        }
+        .a-product {
+            display: flex;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        .image-container {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .product-details {
+            flex: 2;
+        }
+        .no-products {
+            font-size: 18px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+                
+        <div class="filter-section">
+            <h3>Sort by</h3>
+            <form method="get" action="{% url 'sorting' %}">
+                <label>
+                    <input type="radio" name="sortOption" id="amazonSort" value="amazon" 
+                           {% if request.GET.sortOption == 'amazon' %}checked{% endif %}/> Amazon price
+                </label>
+                <label>
+                    <input type="radio" name="sortOption" id="flipkartSort" value="flipkart" 
+                           {% if request.GET.sortOption == 'flipkart' %}checked{% endif %}/> Flipkart price
+                </label><br>
+                <button type="submit">Sort</button>
+                <a href="{% url 'clearSorting' %}" style="text-decoration: none; color: blue;">Clear</a>
+            </form>
+            <h3>Filter by Brand</h3>
+            <form method="get" action="{% url 'searchproducts' %}">
+                <h4>Laptops</h4>
+                <div class="brand-filters">
+                    <label>
+                        <input type="checkbox" name="brand" value="Dell laptop" 
+                               {% if 'Dell laptop' in selected_brands %} checked {% endif %}>
+                        Dell
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="brand" value="Lenovo laptop" 
+                               {% if 'Lenovo laptop' in selected_brands %} checked {% endif %}>
+                        Lenovo
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="brand" value="HP laptop" 
+                               {% if 'HP laptop' in selected_brands %} checked {% endif %}>
+                        HP
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="brand" value="Apple macbook" 
+                               {% if 'Apple macbook' in selected_brands %} checked {% endif %}>
+                        Apple
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="brand" value="Acer laptop" 
+                               {% if 'Acer laptop' in selected_brands %} checked {% endif %}>
+                        Acer
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="brand" value="Asus laptop" 
+                               {% if 'Asus laptop' in selected_brands %} checked {% endif %}>
+                        Asus
+                    </label><br>
                 </div>
-            </div>
+                <h4>mobiles</h4>
+                <div class="brand-filters">
+                    <label>
+                        <input type="checkbox" name="brand" value="iphone" 
+                               {% if 'iphone' in selected_brands %} checked {% endif %}>
+                        iphone
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="brand" value="samsung mobile" 
+                               {% if 'samsung mobile' in selected_brands %} checked {% endif %}>
+                        Samsung
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="brand" value="realme mobile" 
+                               {% if 'realme mobile' in selected_brands %} checked {% endif %}>
+                        Realme
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="brand" value="Redmi mobile" 
+                               {% if 'Redmi mobile' in selected_brands %} checked {% endif %}>
+                        Redmi
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="brand" value="Oppo mobile" 
+                               {% if 'Oppo mobile' in selected_brands %} checked {% endif %}>
+                        Oppo
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="brand" value="Vivo mobile" 
+                               {% if 'Vivo mobile' in selected_brands %} checked {% endif %}>
+                        Vivo
+                    </label><br>
+                </div>
+                <button type="submit">Apply Filters</button>
+            </form>
+            <a href="{% url 'clearFilters' %}" style="text-decoration: none; color: blue;">Clear Filters</a>
         </div>
-        <br>
-        {% endfor %}
-    </body>
+        <div class="products-section">
+            {% if products %}
+                {% for prod in products %}
+                    <div class="a-product">
+                        <div class="image-container">
+                            <img src="{{ prod.image }}" alt="product image" class="product-image"/>
+                        </div>
+                        <div class="product-details">
+                            <h2 class="product-name">{{ prod.name }}</h2><br><br>
+                            <div class="button-container">
+                                <div class="amazon-link">
+                                    <a href="{{ prod.alink }}" target="_blank" class="a-price-link">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="amazon logo" class="amazon-logo" />
+                                        <span class="price">{{ prod.aprice }}</span>
+                                    </a>
+                                </div>
+                                <div class="flipkart-link">
+                                    <a href="{{ prod.flink }}" target="_blank" class="f-price-link">
+                                        <img src="https://1000logos.net/wp-content/uploads/2021/02/Flipkart-logo.png" alt="flipkart logo" class="flipkart-logo" />
+                                        <span class="price">{{ prod.fprice }}</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                {% endfor %}
+            {% else %}
+                <p class="no-products">Try search for products again</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
 </html>
